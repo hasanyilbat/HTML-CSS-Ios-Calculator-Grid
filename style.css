@@ -15,6 +15,7 @@ body {
   grid-template-rows: 250px 590px;
   border-radius: 50px;
   margin: 50px auto;
+  overflow: auto;
 }
 
 .btns {
