@@ -71,7 +71,7 @@ body {
   display: flex;
   justify-content: end;
   align-items: flex-end;
-  width: 33rem;
+  width: 32rem;
   height: 13rem;
 }
 .result {

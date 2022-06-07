@@ -1,7 +1,7 @@
 const btns = document.querySelector(".btns");
 const reset = document.querySelector(".reset");
 let resultScr = document.querySelector(".result");
-let result = "";
+let result = "(";
 const plus = document.querySelector(".plus");
 const minus = document.querySelector(".minus");
 const divide = document.querySelector(".divide");
@@ -20,11 +20,11 @@ btns.addEventListener("click", (e) => {
     minus.style.opacity = "1";
     divide.style.opacity = "1";
     multiple.style.opacity = "1";
+    console.log(result);
   }
-
   if (e.target.innerText == "AC" || e.target.innerText == "C") {
     resultScr.textContent = "";
-    result = "";
+    result = "(";
     reset.textContent = "AC";
     plus.style.opacity = "1";
     multiple.style.opacity = "1";
@@ -68,7 +68,8 @@ btns.addEventListener("click", (e) => {
     minus.style.opacity = "1";
   }
   if (e.target.innerText == ".") {
-    resultScr.textContent += ".";
+    if (!resultScr.textContent.includes(".") && !result.includes("."))
+      resultScr.textContent += ".";
     result += ".";
   }
 
@@ -81,7 +82,10 @@ btns.addEventListener("click", (e) => {
     result = "-" + result;
   }
   if (e.target.innerText == "=") {
-    let sonuc = 0;
+    if (!result.includes(")")) {
+      result += ")";
+    }
+    console.log(result);
     sonuc = eval(result).toFixed(2);
     console.log(typeof sonuc);
     if (sonuc.includes(".00")) {
@@ -90,3 +94,5 @@ btns.addEventListener("click", (e) => {
     resultScr.innerHTML = sonuc;
   }
 });
+
+console.log(eval("(5+3)"));
